@@ -14,6 +14,5 @@
      limitations under the License.
 -->
 <configuration description="Post Processors to Aggregate Performance Metrics.">
-  <!-- Metrics Post Processor -->
-  <metric_post_processor class="com.android.tradefed.postprocessor.AggregatePostProcessor" />
+  <!-- No Post Processor -->
 </configuration>
