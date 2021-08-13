@@ -12,17 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package {
-    default_applicable_licenses: ["Android-Apache-2.0"],
-}
-
-tradefed_binary_host {
-    name: "catbox-tradefed",
-    java_resource_dirs: ["res"],
-    wrapper: "etc/catbox-tradefed",
-    short_name: "CATBOX",
-    full_name: "Complete Automotive Test in a Box",
-    version: "1.0",
-    static_libs: ["cts-tradefed-harness"],
-    required: ["compatibility-host-util", "catbox-report-lib"],
+java_library_host {
+    name: "catbox-report-lib",
+    srcs: ["src/**/*.java"],
+    libs: [
+        "tradefed",
+        "loganalysis",
+        "tools-common-prebuilt",
+        "compatibility-tradefed",
+        "compatibility-host-util",
+    ]
 }
