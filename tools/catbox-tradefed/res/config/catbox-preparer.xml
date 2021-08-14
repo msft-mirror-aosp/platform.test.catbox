@@ -30,6 +30,7 @@
 
   <!-- Target Preparers - Setup the Device -->
   <target_preparer class="com.android.tradefed.targetprep.DeviceSetup">
+    <option name="disable" value="true" />
     <option name="screen-always-on" value="on" />
     <option name="screen-adaptive-brightness" value="off" />
     <option name="screen-saver" value="off" />
