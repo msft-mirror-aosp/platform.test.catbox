@@ -14,9 +14,6 @@
      limitations under the License.
 -->
 <configuration description="Automotive Jank Performance Test Base.">
-  <!-- Test Tag Suffix -->
-  <option name="test-tag-suffix" value="jank" />
-
   <!-- Performance Base -->
   <include name="catbox-performance-base" />
 
