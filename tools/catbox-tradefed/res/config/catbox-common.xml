@@ -19,6 +19,16 @@
   <!-- Test Tag -->
   <option name="test-tag" value="catbox" />
 
+  <!-- Target Preparer To Collect Device Info -->
+  <target_preparer class="com.android.compatibility.common.tradefed.targetprep.DeviceInfoCollector">
+    <option name="apk" value="CtsDeviceInfo.apk"/>
+    <option name="package" value="com.android.compatibility.common.deviceinfo"/>
+    <option name="src-dir" value="/sdcard/device-info-files/"/>
+    <option name="dest-dir" value="device-info-files/"/>
+    <option name="temp-dir" value="temp-device-info-files/"/>
+    <option name="throw-error" value="false"/>
+  </target_preparer>
+
   <!-- Basic Reporters -->
   <include name="basic-reporters" />
 
