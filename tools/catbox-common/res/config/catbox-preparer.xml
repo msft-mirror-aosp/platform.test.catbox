@@ -45,13 +45,35 @@
   <!-- Target Preparers - Install Apps -->
   <target_preparer class="com.android.tradefed.targetprep.TestAppInstallSetup" >
     <option name="cleanup-apks" value="true" />
+    <option name="install-arg" value="-d" />
+    <option name="install-arg" value="-r" />
+    <option name="install-arg" value="-g" />
   </target_preparer>
+
+  <!-- Target Preparers - Install Apps from Suite Testcases directory -->
+  <target_preparer class="com.android.tradefed.targetprep.suite.SuiteApkInstaller" >
+    <option name="cleanup-apks" value="true" />
+    <option name="install-arg" value="-d" />
+    <option name="install-arg" value="-r" />
+    <option name="install-arg" value="-g" />
+  </target_preparer>
+
+  <!-- Target Preparers - To Push Files On The Device -->
+  <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer" />
+
+  <!-- Target Preparers - To Push Files On The Device from Suite Testcases directory -->
+  <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher" />
 
   <!-- Target Preparers - Run Shell Commands -->
   <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer" />
 
   <!-- Target Preparers - Set Properties -->
   <target_preparer class="com.android.catbox.targetpreparer.SetDevicePropertyPreparer" />
+
+  <!-- Target Preparers - WiFi Preparer -->
+  <target_preparer class="com.android.tradefed.targetprep.WifiPreparer" >
+    <option name="skip" value="true" />
+  </target_preparer>
 
   <!-- Template for Account Log In -->
   <template-include name="account-preparer" default="empty" />
