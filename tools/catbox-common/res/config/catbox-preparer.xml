@@ -50,6 +50,9 @@
   <!-- Target Preparers - Run Shell Commands -->
   <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer" />
 
+  <!-- Target Preparers - Set Properties -->
+  <target_preparer class="com.android.catbox.targetpreparer.SetDevicePropertyPreparer" />
+
   <!-- Template for Account Log In -->
   <template-include name="account-preparer" default="empty" />
 </configuration>
