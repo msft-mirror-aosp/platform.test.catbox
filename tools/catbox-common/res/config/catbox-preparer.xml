@@ -14,6 +14,11 @@
      limitations under the License.
 -->
 <configuration description="CATBOX Target Preparer Configuration">
+  <!-- Target Preparers - Add System User and Disable By Default -->
+  <target_preparer class="com.android.tradefed.targetprep.RunOnSystemUserTargetPreparer">
+    <option name="disable" value="true" />
+  </target_preparer>
+
   <!-- Target Preparers - Disable SELinux before Test Execution -->
   <target_preparer class="com.android.tradefed.targetprep.DisableSELinuxTargetPreparer" />
 
