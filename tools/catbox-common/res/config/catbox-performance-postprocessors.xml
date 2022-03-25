@@ -14,5 +14,10 @@
      limitations under the License.
 -->
 <configuration description="Post Processors to Aggregate Performance Metrics.">
-  <!-- No Post Processor -->
+  <metric_post_processor class="com.android.tradefed.postprocessor.MetricFilePostProcessor">
+    <option name="disable" value="false" />
+    <option name="aggregate-similar-tests" value="true" />
+    <option name="test-iteration-separator" value="$" />
+    <option name="enable-per-test-log" value="false" />
+  </metric_post_processor>
 </configuration>
