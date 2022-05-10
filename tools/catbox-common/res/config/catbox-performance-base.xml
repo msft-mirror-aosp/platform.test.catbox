@@ -17,17 +17,26 @@
   <!-- Common Target Preparers -->
   <include name="catbox-preparer" />
 
+  <!-- Result Reporter -->
+  <result_reporter class="com.android.catbox.result.JsonResultReporter">
+    <option name="dest-dir" value="report-log-files/"/>
+    <option name="test-iteration-separator" value="$"/>
+    <option name="aggregate-similar-tests" value="true"/>
+  </result_reporter>
+
   <!-- Common Config -->
   <include name="catbox-common" />
 
+  <!-- Test Tag Suffix -->
+  <option name="test-tag-suffix" value="performance" />
+
   <!-- Performance Specific Target Preparers -->
-  <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer" />
   <target_preparer class="com.android.tradefed.targetprep.PerfettoPreparer" />
   <target_preparer class="com.android.tradefed.targetprep.TimeWaster" />
-
-  <!-- Metrics Result Reporter -->
-  <result_reporter class="com.android.tradefed.result.MetricsXMLResultReporter">
-    <option name="metrics-folder" value="metrics"/>
-  </result_reporter>
+  <target_preparer class="com.android.compatibility.common.tradefed.targetprep.ReportLogCollector">
+    <option name="src-dir" value="/sdcard/report-log-files/"/>
+    <option name="dest-dir" value="report-log-files/"/>
+    <option name="temp-dir" value="temp-report-logs/"/>
+  </target_preparer>
 
 </configuration>
