@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Complete Automotive Tests - Setting Functional Tests.">
+<configuration description="Complete Automotive Tests - MediaCenter Functional Tests.">
   <!-- Common Base -->
   <include name="catbox-common"/>
 
@@ -21,14 +21,18 @@
   <include name="catbox-preparer"/>
 
   <!-- Plan -->
-  <option name="plan" value="catbox-functional-setting"/>
+  <option name="plan" value="catbox-functional-mediacenter"/>
 
   <!-- Test Args -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.tests" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
+  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:shell-timeout:500000" />
+  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:test-timeout:500000" />
 
   <!-- Tests -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.SettingTest" />
-  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.SettingSearchTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterTests android.platform.tests.OpenAppFromMediaCenterTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterTests android.platform.tests.MediaTestAppTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterTests android.platform.tests.NoUserLoggedInTest" />
+
 </configuration>

@@ -17,32 +17,13 @@ package {
 }
 
 java_library_host {
-    name: "catbox-tradefed-lib",
-    java_resource_dirs: ["res"],
-    static_libs: [
-        "cts-tradefed-harness",
-        "catbox-common",
-        "catbox-preparer-lib",
-        "catbox-report-lib"
-    ],
-    required: ["compatibility-host-util"],
-}
-
-
-tradefed_binary_host {
-    name: "catbox-tradefed",
-    java_resource_dirs: ["res"],
-    wrapper: "etc/catbox-tradefed",
-    short_name: "CATBOX",
-    full_name: "Complete Automotive Test in a Box",
-    version: "1.0",
-    static_libs: [
-        "cts-tradefed-harness",
-        "catbox-common",
-        "catbox-preparer-lib"
-    ],
-    required: [
+    name: "catbox-report-lib",
+    srcs: ["src/**/*.java"],
+    libs: [
+        "tradefed",
+        "loganalysis",
+        "tools-common-prebuilt",
+        "compatibility-tradefed",
         "compatibility-host-util",
-        "catbox-report-lib"
-    ],
+    ]
 }

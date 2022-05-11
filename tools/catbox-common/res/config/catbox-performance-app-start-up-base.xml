@@ -13,7 +13,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Post Processors to Aggregate Performance Metrics.">
-  <!-- Metrics Post Processor -->
-  <metric_post_processor class="com.android.tradefed.postprocessor.AggregatePostProcessor" />
+<configuration description="Automotive App Start-up Performance Test Base.">
+  <!-- Performance Base -->
+  <include name="catbox-performance-base" />
+
+  <!-- Base Test Arguments -->
+  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
+  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
+  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:shell-timeout:1000000" />
+
+  <!-- Post Processors -->
+  <include name ="catbox-performance-postprocessors"/>
 </configuration>

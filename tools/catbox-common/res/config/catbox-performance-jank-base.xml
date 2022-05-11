@@ -1,5 +1,5 @@
-<!--
- Copyright (C) 2021 Google Inc.
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 Google Inc.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,22 +13,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Complete Automotive Tests - Setting Functional Tests.">
-  <!-- Common Base -->
-  <include name="catbox-common"/>
+<configuration description="Automotive Jank Performance Test Base.">
+  <!-- Performance Base -->
+  <include name="catbox-performance-base" />
 
-  <!-- Device Preparers -->
-  <include name="catbox-preparer"/>
-
-  <!-- Plan -->
-  <option name="plan" value="catbox-functional-setting"/>
-
-  <!-- Test Args -->
+  <!-- Default Test Arguments -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
-  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.tests" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
+  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:shell-timeout:1000000" />
 
-  <!-- Tests -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.SettingTest" />
-  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.SettingSearchTest" />
+  <!-- Post Processors -->
+  <include name ="catbox-performance-postprocessors"/>
 </configuration>
