@@ -73,6 +73,7 @@ fi;
 
 JAR_DIR=${CATBOX_ROOT}/android-catbox/tools
 JARS="tradefed
+  tradefed-contrib
   loganalysis
   compatibility-host-util
   catbox-tradefed
