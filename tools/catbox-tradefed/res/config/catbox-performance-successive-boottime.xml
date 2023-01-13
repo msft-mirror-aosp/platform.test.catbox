@@ -18,32 +18,11 @@
     <!-- Extend existing boottime config-->
     <include name="google/test/boottime-successive"/>
 
-    <!-- Build Provider -->
-    <build_provider
-        class="com.android.compatibility.common.tradefed.build.CompatibilityBuildProvider"/>
+    <include name="catbox-performance-base" />
 
-    <!-- Target Preparer To Collect Device Info -->
-    <target_preparer
-        class="com.android.compatibility.common.tradefed.targetprep.DeviceInfoCollector">
-        <option name="apk" value="CtsDeviceInfo.apk"/>
-        <option name="package" value="com.android.compatibility.common.deviceinfo"/>
-        <option name="src-dir" value="/sdcard/device-info-files/"/>
-        <option name="dest-dir" value="device-info-files/"/>
-        <option name="temp-dir" value="temp-device-info-files/"/>
-        <option name="throw-error" value="false"/>
-    </target_preparer>
-
-    <!-- Result Reporter -->
-    <result_reporter class="com.android.catbox.result.JsonResultReporter">
-        <option name="dest-dir" value="report-log-files/"/>
-        <option name="test-iteration-separator" value="$"/>
-        <option name="aggregate-similar-tests" value="true"/>
-    </result_reporter>
-    <result_reporter
-        class="com.android.compatibility.common.tradefed.result.suite.CertificationSuiteResultReporter"/>
-    <!-- Create the zip report last always -->
-    <result_reporter class="com.android.compatibility.common.tradefed.result.suite.CertificationReportCreator" />
-
+    <!-- Artificially disabling tests in CompatibilityTestSuite -->
+    <!-- See com.android.tradefed.testtype.suite.CompatibilityTestSuite:loadTests() -->
+    <option name="compatibility:reverse-exclude-filters" value="true" />
 
     <option name="boot-delay" value="20000"/>
     <option name="boot-count" value="20"/>
