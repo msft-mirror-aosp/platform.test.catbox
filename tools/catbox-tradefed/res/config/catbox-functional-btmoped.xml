@@ -14,7 +14,20 @@
      limitations under the License.
 -->
 <configuration description="Complete Automotive Tests - Bluetooth Moped based Functional Tests.">
-   <test class="com.google.android.car.aaosbt.MopedRunner">
-     <option name="test-artifact" value="moped.tar.gz" />
-   </test>
+  <!-- Common Base -->
+  <include name="catbox-common"/>
+
+  <!-- Device Preparers -->
+  <include name="catbox-preparer"/>
+
+  <!-- Plan -->
+  <option name="plan" value="catbox-functional-btmoped"/>
+
+  <!-- Artificially disabling tests in CompatibilityTestSuite -->
+  <!-- See com.android.tradefed.testtype.suite.CompatibilityTestSuite:loadTests() -->
+  <option name="compatibility:reverse-exclude-filters" value="true" />
+
+  <test class="com.google.android.car.aaosbt.MopedRunner">
+    <option name="test-artifact" value="moped.tar.gz" />
+  </test>
 </configuration>
