@@ -1,5 +1,5 @@
 <!--
- Copyright (C) 2021 Google Inc.
+ Copyright (C) 2023 Google Inc.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -29,5 +29,5 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
 
   <!-- Tests -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveUxRestrictionTests android.platform.tests.UxRestrictionTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveUxRestrictionTests android.platform.tests.UxRestrictionDOAppsTest" />
 </configuration>
