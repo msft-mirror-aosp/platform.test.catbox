@@ -24,6 +24,9 @@ import com.android.tradefed.result.ITestInvocationListener;
 import com.android.tradefed.testtype.IRemoteTest;
 import java.net.URISyntaxException;
 import com.android.tradefed.device.ITestDevice;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Collections;
 
 @OptionClass(alias = "aaos-moped-test")
 public class MopedRunner implements IRemoteTest {
@@ -39,9 +42,14 @@ public class MopedRunner implements IRemoteTest {
     @Option(name = "test-timeout-min", description = "test timeout in minutes")
     private int test_timeout_min = 60;
 
+    @Option(name = "testcase", description = "which moped test binary to run")
+    private String test_case = null;
+
     private File mLocalDestFile;
     private File mLocalSrcFile;
     private String mArtifactLocation;
+
+    private static final Map<String, String> autoDic = initDeviceMap();
 
     private void unTarTestArtifact(TestInformation testInfo) throws TargetSetupError, TimeoutException, URISyntaxException {
         if (test_artifact != null && artifact_str == null) {
@@ -73,12 +81,35 @@ public class MopedRunner implements IRemoteTest {
         }
     }
 
-    private String getDevicesString(TestInformation testInfo) {
-      String deviceString = "";
+    private static Map<String, String> initDeviceMap() {
+      Map<String, String> map = new HashMap<>();
+      map.put("seahawk", "AUTO");
+      map.put("seahawk_hwasan", "AUTO");
+      map.put("cf_x86_auto", "AUTO");
+      return Collections.unmodifiableMap(map);
+    }
+
+    private String checkDevice(ITestDevice device) throws DeviceNotAvailableException {
+      String buildFlavor = device.getBuildFlavor().split("-")[0];
+      return autoDic.get(buildFlavor);
+    }
+
+    private String getDevicesString(TestInformation testInfo) throws DeviceNotAvailableException {
+      StringBuilder deviceString = new StringBuilder();
+      int deviceNum = 0;
+      int companionDeviceNum = 0;
       for(ITestDevice device : testInfo.getDevices()) {
-        deviceString += " " + device.getSerialNumber();
+        String deviceType = checkDevice(device);
+        if (deviceType.equals("AUTO")) {
+          deviceString.append(String.format(" --hu %s", device.getSerialNumber()));
+        } else {
+          companionDeviceNum++;
+          deviceString.append(String.format(" --phone%s %s", String.valueOf(companionDeviceNum), device.getSerialNumber()));
+        }
+        deviceNum++;
       }
-      return deviceString;
+      deviceString.append(String.format(" --devicenum %s", String.valueOf(deviceNum)));
+      return deviceString.toString();
     }
 
     @Override
@@ -88,8 +119,11 @@ public class MopedRunner implements IRemoteTest {
         try {
             unTarTestArtifact(testInfo);
             executeHostCommand(
-                    new String[] {"bash", "-c", "bash " + mArtifactLocation + "run.sh"+getDevicesString(testInfo)},
-                    test_timeout_min);
+                    new String[] {"bash", "-c", "bash " +
+                                          String.format("%s/run.sh %s --testcase %s", mArtifactLocation,
+                                          getDevicesString(testInfo),
+                                          test_case)},
+                                          test_timeout_min);
         } catch (TargetSetupError e) {
             CLog.logAndDisplay(LogLevel.VERBOSE, "There are problems running tests! %s", e);
         } catch (TimeoutException e) {
