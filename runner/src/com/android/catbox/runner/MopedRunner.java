@@ -39,6 +39,9 @@ public class MopedRunner implements IRemoteTest {
     @Option(name = "test-timeout-min", description = "test timeout in minutes")
     private int test_timeout_min = 60;
 
+    @Option(name = "testcase", description = "which moped test binary to run")
+    private String test_case = null;
+
     private File mLocalDestFile;
     private File mLocalSrcFile;
     private String mArtifactLocation;
@@ -73,12 +76,19 @@ public class MopedRunner implements IRemoteTest {
         }
     }
 
-    private String getDevicesString(TestInformation testInfo) {
-      String deviceString = "";
+    private String getDevicesString(TestInformation testInfo) throws DeviceNotAvailableException {
+      StringBuilder deviceString = new StringBuilder();
+      int deviceNum = 0;
       for(ITestDevice device : testInfo.getDevices()) {
-        deviceString += " " + device.getSerialNumber();
+        if (deviceNum==0) { // by default the first device is head unit.
+          deviceString.append(String.format(" --hu %s", device.getSerialNumber()));
+        } else {
+          deviceString.append(String.format(" --phone%s %s", String.valueOf(deviceNum), device.getSerialNumber()));
+        }
+        deviceNum++;
       }
-      return deviceString;
+      deviceString.append(String.format(" --devicenum %s", String.valueOf(deviceNum)));
+      return deviceString.toString();
     }
 
     @Override
@@ -88,8 +98,11 @@ public class MopedRunner implements IRemoteTest {
         try {
             unTarTestArtifact(testInfo);
             executeHostCommand(
-                    new String[] {"bash", "-c", "bash " + mArtifactLocation + "run.sh"+getDevicesString(testInfo)},
-                    test_timeout_min);
+                    new String[] {"bash", "-c", "bash " +
+                                          String.format("%s/run.sh %s --testcase %s", mArtifactLocation,
+                                          getDevicesString(testInfo),
+                                          test_case)},
+                                          test_timeout_min);
         } catch (TargetSetupError e) {
             CLog.logAndDisplay(LogLevel.VERBOSE, "There are problems running tests! %s", e);
         } catch (TimeoutException e) {
