@@ -38,5 +38,8 @@
     <option name="dest-dir" value="report-log-files/"/>
     <option name="temp-dir" value="temp-report-logs/"/>
   </target_preparer>
+  <target_preparer class="com.android.catbox.targetpreparer.ChromeMdPassengerLoadPreparer">
+    <option name="disable" value="true"/>
+  </target_preparer>
 
 </configuration>
