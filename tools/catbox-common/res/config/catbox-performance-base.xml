@@ -38,5 +38,9 @@
     <option name="dest-dir" value="report-log-files/"/>
     <option name="temp-dir" value="temp-report-logs/"/>
   </target_preparer>
+  <target_preparer class="com.android.catbox.targetpreparer.ChromeMdPassengerLoadPreparer">
+    <option name="disable" value="true"/>
+    <option name="url" value="https://youtu.be/dQw4w9WgXcQ"/>
+  </target_preparer>
 
 </configuration>
