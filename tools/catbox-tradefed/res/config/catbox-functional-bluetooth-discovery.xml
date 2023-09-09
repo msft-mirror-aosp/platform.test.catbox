@@ -19,6 +19,9 @@
 
   <include name="everything" />
 
+  <!-- Template for Result Reporters -->
+  <template-include name="reporters" default="empty" />
+
   <!-- Test Tag -->
   <option name="test-tag" value="catbox" />
 
@@ -35,7 +38,7 @@
     <!-- Build Provider -->
     <build_provider class="com.android.compatibility.common.tradefed.build.CompatibilityBuildProvider" />
     <target_preparer class="com.android.tradefed.targetprep.suite.SuiteApkInstaller" >
-      <option name="test-file-name" value="AutomotivePhoneSnippet.apk" />
+      <option name="test-file-name" value="AutomotiveSnippet.apk" />
     </target_preparer>
   </device>
 
@@ -43,7 +46,7 @@
     <!-- Build Provider -->
     <build_provider class="com.android.compatibility.common.tradefed.build.CompatibilityBuildProvider" />
     <target_preparer class="com.android.tradefed.targetprep.suite.SuiteApkInstaller" >
-      <option name="test-file-name" value="mobly-bundled-snippets.apk" />
+      <option name="test-file-name" value="PhoneSnippet.apk" />
     </target_preparer>
   </device>
 
