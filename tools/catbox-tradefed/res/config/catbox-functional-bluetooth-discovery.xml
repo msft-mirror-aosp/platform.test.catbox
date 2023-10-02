@@ -15,6 +15,7 @@
 -->
 <configuration description="Bluetooth Discovery Test Using Mobly">
   <!-- Plan -->
+  <!-- TODO(@vitalidim) rename test plan since it's not for bt discovery only -->
   <option name="plan" value="catbox-functional-bluetooth-discovery"/>
 
   <include name="everything" />
@@ -59,7 +60,6 @@
 
   <test class="com.android.tradefed.testtype.mobly.MoblyBinaryHostTest">
     <!-- The mobly-par-file-name should match the module name -->
-    <option name="mobly-par-file-name" value="BTDiscoveryTest" />
     <!-- Timeout limit in milliseconds for all test cases of the python binary -->
     <option name="mobly-test-timeout" value="180000" />
     <!-- Testbed config file -->
