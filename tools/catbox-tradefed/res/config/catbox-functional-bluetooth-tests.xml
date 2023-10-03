@@ -13,10 +13,10 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Bluetooth Discovery Test Using Mobly">
+<configuration description="Bluetooth Tests Using Mobly">
   <!-- Plan -->
   <!-- TODO(@vitalidim) rename test plan since it's not for bt discovery only -->
-  <option name="plan" value="catbox-functional-bluetooth-discovery"/>
+  <option name="plan" value="catbox-functional-bluetooth-tests"/>
 
   <include name="everything" />
 
