@@ -17,23 +17,11 @@
 <configuration description="Base config for Multi-User latency metrics">
   <include name="catbox-performance-base" />
 
-  <!-- Skip the test if skip conditions are met -->
-  <target_preparer class="com.android.catbox.targetpreparer.SkipTestPreparer">
-    <option name="comp-property" value="ro.build.version.sdk"/>
-    <option name="comp-property-int-value" value="33"/>
-    <option name="int-comparison-operator" value="lt"/>
-  </target_preparer>
-
   <!-- TradeFed test harness -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.scenario.multiuser" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:shell-timeout:1000000" />
-
-  <!-- Switch to User 0 and wait for a some time (milliseconds) until system idle -->
-  <target_preparer class="com.android.tradefed.targetprep.SwitchUserTargetPreparer" >
-    <option name="user-type" value="SYSTEM" />
-  </target_preparer>
 
   <option name="compatibility:test-arg" value="com.android.tradefed.targetprep.TimeWaster:delay:20000" />
 
