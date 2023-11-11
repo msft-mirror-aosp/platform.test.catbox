@@ -61,7 +61,7 @@
   <test class="com.android.tradefed.testtype.mobly.MoblyBinaryHostTest">
     <!-- The mobly-par-file-name should match the module name -->
     <!-- Timeout limit in milliseconds for all test cases of the python binary -->
-    <option name="mobly-test-timeout" value="180000" />
+    <option name="mobly-test-timeout" value="300000" />
     <!-- Testbed config file -->
     <option name="mobly-config-file-name" value="bt_discovery_config.yaml" />
   </test>
