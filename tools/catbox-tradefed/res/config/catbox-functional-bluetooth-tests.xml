@@ -20,22 +20,6 @@
 
   <include name="everything" />
 
-  <!-- Device 1 configurations -->
-  <device name="device1">
-    <!-- Optionally do not add google account by default -->
-    <target_preparer class="com.google.android.tradefed.targetprep.GoogleAccountPreparer">
-      <option name="disable" value="true" />
-    </target_preparer>
-  </device>
-
-  <!-- Device 2 configurations -->
-  <device name="device2">
-    !-- Optionally do not add google account by default -->
-    <target_preparer class="com.google.android.tradefed.targetprep.GoogleAccountPreparer">
-      <option name="disable" value="true" />
-    </target_preparer>
-  </device>
-
   <!-- Template for Result Reporters -->
   <template-include name="reporters" default="empty" />
 
