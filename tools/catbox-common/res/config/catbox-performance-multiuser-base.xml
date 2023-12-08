@@ -23,11 +23,6 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:shell-timeout:1000000" />
 
-  <!-- Switch to User 0 and wait for a some time (milliseconds) until system idle -->
-  <target_preparer class="com.android.tradefed.targetprep.SwitchUserTargetPreparer" >
-    <option name="user-type" value="SYSTEM" />
-  </target_preparer>
-
   <option name="compatibility:test-arg" value="com.android.tradefed.targetprep.TimeWaster:delay:20000" />
 
   <option name="compatibility:module-arg" value="AndroidAutomotiveMultiuserScenarioTests:instrumentation-arg:iterations:=5" />
