@@ -20,4 +20,7 @@
     <option name="test-iteration-separator" value="$" />
     <option name="enable-per-test-log" value="false" />
   </metric_post_processor>
+  <metric_post_processor class="com.android.tradefed.postprocessor.PerfettoGenericPostProcessor">
+    <option name="perfetto-proto-file-prefix" value="metric_perfetto" />
+  </metric_post_processor>
 </configuration>
