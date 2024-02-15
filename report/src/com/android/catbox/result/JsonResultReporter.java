@@ -79,6 +79,12 @@ public class JsonResultReporter implements ITestInvocationListener {
     private Map<String, String> mReportTestNameMap = new HashMap<String, String>();
 
     @Option(
+            name = "exclude-metric-from-test-name",
+            description = "Exclude metric from test name in report.")
+    private Map<String, String> mExcludeMetricTestNameMap = new HashMap<String, String>();
+
+
+    @Option(
             name = "report-all-metrics",
             description = "Report all the generated metrics. Default to 'true'.")
     private boolean mReportAllMetrics = true;
@@ -209,7 +215,7 @@ public class JsonResultReporter implements ITestInvocationListener {
             writeAllMetrics(reportLog, metrics);
         } else {
             // Write metrics for given keys to the report
-            writeMetricsForGivenKeys(reportLog, metrics);
+            writeMetricsForGivenKeys(reportLog, metrics, streamName);
         }
 
         // Submit Report Log
@@ -237,7 +243,7 @@ public class JsonResultReporter implements ITestInvocationListener {
 
     /** Write given set of metrics to JSON Report */
     private void writeMetricsForGivenKeys(
-            MetricsReportLog reportLog, Map<String, String> metrics) {
+            MetricsReportLog reportLog, Map<String, String> metrics, String streamName) {
         CLog.logAndDisplay(LogLevel.INFO, "Writing given set of metrics to JSON report.");
         if (mReportMetricKeyMap == null || mReportMetricKeyMap.isEmpty()) {
             CLog.logAndDisplay(
@@ -247,6 +253,10 @@ public class JsonResultReporter implements ITestInvocationListener {
         for (String key : mReportMetricKeyMap.keySet()) {
             if (!metrics.containsKey(key) || metrics.get(key) == null) {
                 CLog.logAndDisplay(LogLevel.WARN, String.format("%s metric key is missing.", key));
+                continue;
+            }
+            if(mExcludeMetricTestNameMap != null && mExcludeMetricTestNameMap.get(key) !=null && mExcludeMetricTestNameMap.get(key).equals(streamName)){
+                CLog.logAndDisplay(LogLevel.WARN, String.format("Excluding %s metric key from %s test.", key, streamName));
                 continue;
             }
             try {
@@ -293,9 +303,9 @@ public class JsonResultReporter implements ITestInvocationListener {
                         String.format("%s is not a directory", hostReportDir.getAbsolutePath()));
                 return;
             }
-            // Copy the report logs from temp directory and to the results directory
+            // Copy/Merge the report logs from temp directory and to the results directory
+            CollectorUtil.reformatRepeatedStreams(hostReportDir);
             CollectorUtil.pullFromHost(hostReportDir, resultDir);
-            CollectorUtil.reformatRepeatedStreams(resultDir);
             CLog.logAndDisplay(LogLevel.INFO, "Copying the report log completed successfully.");
         } catch (IOException exception) {
             CLog.logAndDisplay(LogLevel.ERROR, exception.getMessage());
