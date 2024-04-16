@@ -42,7 +42,7 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.dial" />
 
   <!-- Test -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveDialScenarioTests android.platform.test.scenario.dial.OpenAppMicrobenchmark#testOpen" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveDialScenarioTests android.platform.test.scenario.dial.OpenAppMicrobenchmark" />
 
   <!-- Test Metrics Report Options -->
   <option name="report-log-name" value="CatboxPerformanceTests" />
