@@ -37,7 +37,7 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.dial" />
 
   <!-- Test -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveDialScenarioTests android.platform.test.scenario.dial.ScrollContactListMicrobenchmark#testScrollDownAndUp" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveDialScenarioTests android.platform.test.scenario.dial.ScrollContactListMicrobenchmark" />
 
   <!-- Jank Package -->
   <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:jank-package-names:=com.android.car.dialer" />

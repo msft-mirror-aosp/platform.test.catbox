@@ -38,7 +38,7 @@
     <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.mediacenter" />
 
     <!-- Test -->
-    <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterScenarioTests android.platform.test.scenario.mediacenter.SwitchPlaybackMicrobenchmark#testSwitchPlayback" />
+    <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterScenarioTests android.platform.test.scenario.mediacenter.SwitchPlaybackMicrobenchmark" />
 
     <!-- Jank Package -->
     <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:jank-package-names:=com.android.car.media" />

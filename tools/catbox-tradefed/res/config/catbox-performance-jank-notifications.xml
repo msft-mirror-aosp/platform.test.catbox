@@ -37,7 +37,7 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.notification" />
 
   <!-- Test -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveNotificationScenarioTests android.platform.test.scenario.notification.ScrollMicrobenchmark#testScrollUpAndDown" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveNotificationScenarioTests android.platform.test.scenario.notification.ScrollMicrobenchmark" />
 
   <!-- Jank Package -->
   <option name="compatibility:module-arg" value="AndroidAutomotiveNotificationScenarioTests:instrumentation-arg:jank-package-names:=com.android.systemui" />

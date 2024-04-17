@@ -42,7 +42,7 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.mediacenter" />
 
   <!-- Test -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterScenarioTests android.platform.test.scenario.mediacenter.OpenAppMicrobenchmark#testOpen" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterScenarioTests android.platform.test.scenario.mediacenter.OpenAppMicrobenchmark" />
 
   <!-- Test Metrics Report Options -->
   <option name="report-log-name" value="CatboxPerformanceTests" />
