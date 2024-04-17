@@ -37,7 +37,7 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.appgrid" />
 
   <!-- Test -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveAppGridScenarioTests android.platform.test.scenario.appgrid.ScrollMicrobenchmark#testScrollForwardAndBackward" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveAppGridScenarioTests android.platform.test.scenario.appgrid.ScrollMicrobenchmark" />
 
   <!-- Jank Package -->
   <option name="compatibility:module-arg" value="AndroidAutomotiveAppGridScenarioTests:instrumentation-arg:jank-package-names:=com.android.car.carlauncher" />
