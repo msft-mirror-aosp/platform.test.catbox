@@ -178,6 +178,12 @@ public class JsonResultReporter implements ITestInvocationListener {
         mTestMetricsUtil.setIterationSeparator(mTestIterationSeparator);
     }
 
+    /** Re-initialize object to erase all existing test metrics */
+    private void reInitializeTestMetricsUtil() {
+        mTestMetricsUtil = initializeTestMetricsUtil();
+        mTestMetricsUtil.setIterationSeparator(mTestIterationSeparator);
+    }
+
     /** Write Test Metrics to JSON */
     private void writeTestMetrics(
             String classMethodName, Map<String, String> metrics) {
@@ -287,9 +293,9 @@ public class JsonResultReporter implements ITestInvocationListener {
                         String.format("%s is not a directory", hostReportDir.getAbsolutePath()));
                 return;
             }
-            // Copy the report logs from temp directory and to the results directory
+            // Copy/Merge the report logs from temp directory and to the results directory
+            CollectorUtil.reformatRepeatedStreams(hostReportDir);
             CollectorUtil.pullFromHost(hostReportDir, resultDir);
-            CollectorUtil.reformatRepeatedStreams(resultDir);
             CLog.logAndDisplay(LogLevel.INFO, "Copying the report log completed successfully.");
         } catch (IOException exception) {
             CLog.logAndDisplay(LogLevel.ERROR, exception.getMessage());
@@ -332,6 +338,9 @@ public class JsonResultReporter implements ITestInvocationListener {
                 writeTestMetrics(testName, aggregatedMetrics.get(testName));
             }
         }
+
+        // Avoid reporting duplicate metrics by erasing metrics from previous runs
+        reInitializeTestMetricsUtil();
     }
 
     /** {@inheritDoc} */
