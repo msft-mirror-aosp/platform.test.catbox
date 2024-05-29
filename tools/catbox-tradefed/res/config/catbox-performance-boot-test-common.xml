@@ -35,6 +35,8 @@
         value="successive-boot-prepare-cmd:setprop persist.aae.suw.disable_short_notice true"/>
     <option name="set-option"
         value="successive-boot-prepare-cmd:cmd car_service enable-feature car_evs_service"/>
+    <!-- Add an after boot delay to capture logcat entries for post processor -->
+    <option name="set-option" value="after-boot-delay:5000" />
   </test>
 
   <metrics_collector class="com.android.tradefed.device.metric.AtraceCollector"/>
