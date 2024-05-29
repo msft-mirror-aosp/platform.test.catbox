@@ -28,6 +28,8 @@ import com.android.tradefed.targetprep.BuildError;
 import com.android.tradefed.targetprep.TargetSetupError;
 import com.android.tradefed.util.CommandResult;
 
+import java.util.Objects;
+
 /**
  * Sets the device into a low performance state for the test duration
  */
@@ -51,6 +53,11 @@ public class LowPerformanceTargetPreparer extends BaseTargetPreparer {
                 return o.mMem.equals(this.mMem) && o.mNrCpus.equals(this.mNrCpus);
             }
             return false;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(mNrCpus, mMem);
         }
     }
 
