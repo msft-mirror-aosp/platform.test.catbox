@@ -34,6 +34,11 @@
     <option name="set-secure-setting" key="location_mode" value="1" />
   </target_preparer>
 
+  <!-- Target Preparers - Limit resources on the device for low performance testing -->
+  <target_preparer class="com.android.catbox.targetpreparer.LowPerformanceTargetPreparer">
+    <option name="disable" value="true" />
+  </target_preparer>
+
   <!-- Target Preparers - ADB Root -->
   <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer" />
 

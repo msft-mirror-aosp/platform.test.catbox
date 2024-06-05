@@ -37,7 +37,7 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.settings" />
 
   <!-- Test -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsScenarioTests android.platform.test.scenario.settings.ScrollInAppMicrobenchmark#testScrollDownAndUp" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsScenarioTests android.platform.test.scenario.settings.ScrollInAppMicrobenchmark" />
 
   <!-- Jank Package -->
   <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:jank-package-names:=com.android.car.settings" />
