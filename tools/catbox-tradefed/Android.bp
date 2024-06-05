@@ -23,11 +23,10 @@ java_library_host {
         "cts-tradefed-harness",
         "catbox-common",
         "catbox-preparer-lib",
-        "catbox-report-lib"
+        "catbox-report-lib",
     ],
     required: ["compatibility-host-util"],
 }
-
 
 tradefed_binary_host {
     name: "catbox-tradefed",
@@ -40,10 +39,10 @@ tradefed_binary_host {
         "cts-tradefed-harness",
         "catbox-common",
         "catbox-preparer-lib",
-        "catbox-test-runner-lib"
+        "catbox-test-runner-lib",
     ],
     required: [
         "compatibility-host-util",
-        "catbox-report-lib"
+        "catbox-report-lib",
     ],
 }
