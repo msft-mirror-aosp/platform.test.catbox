@@ -28,6 +28,7 @@
 
   <test class="com.android.tradefed.testtype.HostTest" >
     <option name="class" value="android.boottime.BootTimeTest" />
+    <option name="include-filter" value="android.boottime.BootTimeTest#testSuccessiveBoots" />
     <option name="set-option" value="boot-delay:20000" />
     <option name="set-option"
         value="successive-boot-prepare-cmd:am start -n com.google.android.car.setupwizard/.ExitActivity"/>
