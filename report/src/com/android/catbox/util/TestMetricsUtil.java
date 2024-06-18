@@ -90,6 +90,11 @@ public class TestMetricsUtil {
             className = testDescription.getClassName().substring(0, iterationSeparatorIndex);
         }
         String newTestId = CLASS_METHOD_JOINER.join(className, testDescription.getTestName());
+        // Check if the method name has an iteration number. See - http://b/342206870
+        int newTestIdIterationSeparatorIndex = newTestId.indexOf(mTestIterationSeparator);
+        if (newTestIdIterationSeparatorIndex != -1) {
+            newTestId = newTestId.substring(0, newTestIdIterationSeparatorIndex);
+        }
 
         if (!mStoredTestMetrics.containsKey(newTestId)) {
             mStoredTestMetrics.put(newTestId, ArrayListMultimap.create());
@@ -99,12 +104,11 @@ public class TestMetricsUtil {
 
         // Store only raw metrics
         HashMap<String, Metric> rawMetrics = getRawMetricsOnly(testMetrics);
-
         for (Map.Entry<String, Metric> entry : rawMetrics.entrySet()) {
             String key = entry.getKey();
             // In case of Multi User test, the metric conatins className with iteration separator
             if (key.indexOf(mTestIterationSeparator) != -1 &&
-                        key.contains(testDescription.getClassName())) {
+                    key.contains(testDescription.getClassName())) {
                 key = key.substring(0, key.indexOf(mTestIterationSeparator));
                 key = CLASS_METHOD_JOINER.join(key, testDescription.getTestName());
             }
@@ -136,7 +140,7 @@ public class TestMetricsUtil {
                                     // in a certain run
                                     List<String> splitVals = Arrays.asList(m.split(",", 0));
                                     if (splitVals.size() == 1 && splitVals.get(0).isEmpty()) {
-                                        return Collections.<String> emptyList();
+                                        return Collections.<String>emptyList();
                                     }
                                     return splitVals;
                                 })
