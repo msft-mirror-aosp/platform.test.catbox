@@ -20,6 +20,9 @@
   <!-- Device Preparers -->
   <include name="catbox-preparer"/>
 
+  <!-- Enable system user target preparer to run as user 0 -->
+  <option name="run-on-system-user:disable" value="false" />
+
   <!-- Plan -->
   <option name="plan" value="  functional_tests.catbox_functional_admin_user_grant_permissions
 "/>
