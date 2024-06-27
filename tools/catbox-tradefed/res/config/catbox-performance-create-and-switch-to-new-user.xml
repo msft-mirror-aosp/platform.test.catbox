@@ -31,7 +31,7 @@
   <option name="report-log-name" value="CatboxPerformanceTests" />
   <option name="report-test-name-mapping" key="android.platform.scenario.multiuser.SwitchToNewSecondaryUserBenchmark#testSwitch" value="switch_to_new_user" />
   <option name="report-all-metrics" value="false" />
-  <option name="report-metric-key-mapping" key="duration_ms_android.platform.scenario.multiuser.SwitchToNewSecondaryUserBenchmark#testSwitch-median" value="duration_ms" />
+  <option name="report-metric-key-mapping" key="duration_ms_android.platform.scenario.multiuser.SwitchToNewSecondaryUserBenchmark-median" value="duration_ms" />
 
   <option name="plan" value="catbox-performance-create-and-switch-to-new-user" />
 </configuration>
