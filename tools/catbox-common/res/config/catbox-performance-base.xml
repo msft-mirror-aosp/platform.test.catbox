@@ -45,6 +45,8 @@
     </target_preparer>
 
     <!-- Enable perfetto host side metric collector -->
-    <include name="perfetto-puller"/>
-
+    <metrics_collector class="com.android.tradefed.device.metric.PerfettoPullerMetricCollector">
+        <option name="collect-on-run-ended-only" value="false" />
+        <option name="pull-pattern-keys" value="perfetto_file_path" />
+    </metrics_collector>
 </configuration>
