@@ -25,6 +25,11 @@
     <option name="disable" value="true" />
   </target_preparer>
 
+  <!-- Target Preparers - Start user on secondary display -->
+  <target_preparer class="com.android.tradefed.targetprep.VisibleBackgroundUserPreparer">
+    <option name="disable" value="true" />
+  </target_preparer>
+
   <!-- Target Preparers - Setup the Device -->
   <target_preparer class="com.android.tradefed.targetprep.DeviceSetup">
     <option name="disable" value="true" />
