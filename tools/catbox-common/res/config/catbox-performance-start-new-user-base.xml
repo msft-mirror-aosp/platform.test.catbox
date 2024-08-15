@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2021 Google Inc.
+<!-- Copyright (C) 2024 Google Inc.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,13 +17,11 @@
 <configuration description="CATBox Performance Test to measure latency to switch to a Existing User">
   <include name="catbox-performance-multiuser-base" />
   <!-- Test -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserScenarioTests android.platform.scenario.multiuser.SwitchToExistingSecondaryUserBenchmark" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserScenarioTests android.platform.scenario.multiuser.StartNewUserBenchmark" />
 
   <!-- Test Metrics Report -->
   <option name="report-log-name" value="CatboxPerformanceTests" />
-  <option name="report-test-name-mapping" key="android.platform.scenario.multiuser.SwitchToExistingSecondaryUserBenchmark#testSwitch" value="switch_to_existing_user" />
+  <option name="report-test-name-mapping" key="android.platform.scenario.multiuser.StartNewUserBenchmark#testStartNewUser" value="start_new_user" />
   <option name="report-all-metrics" value="false" />
-  <option name="report-metric-key-mapping" key="duration_ms_android.platform.scenario.multiuser.SwitchToExistingSecondaryUserBenchmark-median" value="duration_ms" />
-
-  <option name="plan" value="catbox-performance-switch-to-existing-user" />
+  <option name="report-metric-key-mapping" key="duration_ms_android.platform.scenario.multiuser.StartNewUserBenchmark-median" value="duration_ms" />
 </configuration>
