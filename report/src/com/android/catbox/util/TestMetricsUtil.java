@@ -84,12 +84,17 @@ public class TestMetricsUtil {
 
         // Group test cases which differs only by the iteration separator or test the same name.
         String className = testDescription.getClassName();
-        int iterationSeparatorIndex = testDescription.getClassName()
-                .indexOf(mTestIterationSeparator);
-        if (iterationSeparatorIndex != -1) {
-            className = testDescription.getClassName().substring(0, iterationSeparatorIndex);
+        String testName = testDescription.getTestName();
+
+        // Check if the class name has an iteration separator.
+        if(className.contains(mTestIterationSeparator)) {
+            className = className.substring(0, className.indexOf(mTestIterationSeparator));
         }
-        String newTestId = CLASS_METHOD_JOINER.join(className, testDescription.getTestName());
+        // Also check if the test(method) name has an iteration separator. See - http://b/342206870
+        if(testName.contains(mTestIterationSeparator)) {
+            testName = testName.substring(0, testName.indexOf(mTestIterationSeparator));
+        }
+        String newTestId = CLASS_METHOD_JOINER.join(className, testName);
 
         if (!mStoredTestMetrics.containsKey(newTestId)) {
             mStoredTestMetrics.put(newTestId, ArrayListMultimap.create());
@@ -99,14 +104,11 @@ public class TestMetricsUtil {
 
         // Store only raw metrics
         HashMap<String, Metric> rawMetrics = getRawMetricsOnly(testMetrics);
-
         for (Map.Entry<String, Metric> entry : rawMetrics.entrySet()) {
             String key = entry.getKey();
-            // In case of Multi User test, the metric conatins className with iteration separator
-            if (key.indexOf(mTestIterationSeparator) != -1 &&
-                        key.contains(testDescription.getClassName())) {
-                key = key.substring(0, key.indexOf(mTestIterationSeparator));
-                key = CLASS_METHOD_JOINER.join(key, testDescription.getTestName());
+            // In case of Multi User tests, explicitly filter out the method name(that also includes the iteration separator)
+            if (key.contains("#")) {
+                key = key.substring(0, key.indexOf("#"));
             }
             storedMetricsForThisTest.put(key, entry.getValue());
         }
@@ -127,7 +129,7 @@ public class TestMetricsUtil {
                 List<Metric> metrics = currentTest.get(metricKey);
                 List<Measurements> measures = metrics.stream().map(Metric::getMeasurements)
                         .collect(Collectors.toList());
-                // Parse metrics into a list of SingleString values, concating lists in the process
+                // Parse metrics into a list of SingleString values, concatenating lists in the process
                 List<String> rawValues = measures.stream()
                         .map(Measurements::getSingleString)
                         .map(
@@ -136,7 +138,7 @@ public class TestMetricsUtil {
                                     // in a certain run
                                     List<String> splitVals = Arrays.asList(m.split(",", 0));
                                     if (splitVals.size() == 1 && splitVals.get(0).isEmpty()) {
-                                        return Collections.<String> emptyList();
+                                        return Collections.<String>emptyList();
                                     }
                                     return splitVals;
                                 })
