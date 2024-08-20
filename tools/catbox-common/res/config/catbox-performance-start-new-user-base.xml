@@ -19,6 +19,12 @@
   <!-- Test -->
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserScenarioTests android.platform.scenario.multiuser.StartNewUserBenchmark" />
 
+  <!-- Perfetto -->
+  <option name="compatibility:module-arg" value="AndroidAutomotiveMultiuserScenarioTests:instrumentation-arg:perfetto_config_text_proto:=true" />
+  <option name="compatibility:module-arg" value="AndroidAutomotiveMultiuserScenarioTests:instrumentation-arg:perfetto_config_file:=trace_config.textproto" />
+  <option name="compatibility:module-arg" value="AndroidAutomotiveMultiuserScenarioTests:instrumentation-arg:test_output_root:=/data/misc/perfetto-traces" />
+
+
   <!-- Test Metrics Report -->
   <option name="report-log-name" value="CatboxPerformanceTests" />
   <option name="report-test-name-mapping" key="android.platform.scenario.multiuser.StartNewUserBenchmark#testStartNewUser" value="start_new_user" />
