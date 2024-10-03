@@ -48,5 +48,6 @@
     <metrics_collector class="com.android.tradefed.device.metric.PerfettoPullerMetricCollector">
         <option name="collect-on-run-ended-only" value="false" />
         <option name="pull-pattern-keys" value="perfetto_file_path" />
+        <option name="trace-processor-run-metrics" value="android_mem,android_auto_multiuser" />
     </metrics_collector>
 </configuration>
