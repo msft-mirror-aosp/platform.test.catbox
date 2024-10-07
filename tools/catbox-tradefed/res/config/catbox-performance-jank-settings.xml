@@ -44,7 +44,7 @@
 
   <!-- Test Metrics Report Options -->
   <option name="report-log-name" value="CatboxPerformanceTests" />
-  <option name="report-test-name-mapping" key="android.platform.test.scenario.settings.ScrollInAppMicrobenchmark#testScrollDownAndUp" value="settings_scroll_jank" />
+  <option name="report-test-name-mapping" key="android.platform.test.scenario.settings.ScrollInAppMicrobenchmark#testScrollForwardAndBackward" value="settings_scroll_jank" />
   <option name="report-all-metrics" value="false" />
   <option name="report-metric-key-mapping" key="gfxinfo_com.android.car.settings_janky_frames_percent-mean" value="jank_frames_percent" />
 </configuration>
