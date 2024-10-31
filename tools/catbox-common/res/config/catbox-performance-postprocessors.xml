@@ -21,6 +21,9 @@
     <option name="enable-per-test-log" value="false" />
   </metric_post_processor>
   <metric_post_processor class="com.android.tradefed.postprocessor.PerfettoGenericPostProcessor">
+    <option name="perfetto-include-all-metrics" value="false" />
     <option name="perfetto-proto-file-prefix" value="metric_perfetto" />
+    <option name="perfetto-prefix-key-field" value="perfetto.protos.AndroidAutoMultiuserMetric.EventData.end_event" />
+    <option name="perfetto-metric-filter-regex" value="android_auto_multiuser-user_switch-end_event.*duration_ms" />
   </metric_post_processor>
 </configuration>
