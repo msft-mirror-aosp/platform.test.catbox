@@ -41,12 +41,17 @@
     </target_preparer>
     <target_preparer class="com.android.catbox.targetpreparer.ChromeMdPassengerLoadPreparer">
         <option name="disable" value="true"/>
-        <option name="url" value="https://youtu.be/dQw4w9WgXcQ"/>
+        <option name="skip-passenger-loading" value="false"/>
+        <option name="max-users" value="10"/>
+        <option name="post-test-cleanup" value="true"/>
+        <option name="url" value="https://youtu.be/YB8BX0Pt1Lk?si=k7Sbae9AAj4lU6-7"/>
+        <option name="install-apk" value="false"/>
     </target_preparer>
 
     <!-- Enable perfetto host side metric collector -->
     <metrics_collector class="com.android.tradefed.device.metric.PerfettoPullerMetricCollector">
         <option name="collect-on-run-ended-only" value="false" />
         <option name="pull-pattern-keys" value="perfetto_file_path" />
+        <option name="trace-processor-run-metrics" value="android_mem,android_auto_multiuser" />
     </metrics_collector>
 </configuration>
