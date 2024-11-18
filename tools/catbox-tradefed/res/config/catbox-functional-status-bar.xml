@@ -37,4 +37,6 @@
       value="AndroidAutomotiveStatusBarTests android.platform.tests.StatusBarTest" />
   <option name="compatibility:include-filter"
       value="AndroidAutomotiveStatusBarTests android.platform.tests.CurrentDateTimeTest" />
+  <option name="compatibility:include-filter"
+      value="AndroidAutomotiveStatusBarTests android.platform.tests.LaunchQuickControlsTest" />
 </configuration>
