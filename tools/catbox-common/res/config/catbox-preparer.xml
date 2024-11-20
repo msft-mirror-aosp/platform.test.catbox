@@ -33,9 +33,6 @@
   <!-- Target Preparers - Setup the Device -->
   <target_preparer class="com.android.tradefed.targetprep.DeviceSetup">
     <option name="disable" value="true" />
-    <option name="screen-always-on" value="on" />
-    <option name="screen-adaptive-brightness" value="off" />
-    <option name="screen-saver" value="off" />
     <option name="set-secure-setting" key="location_mode" value="1" />
   </target_preparer>
 
