@@ -248,7 +248,7 @@ public class ChromeMdPassengerLoadPreparer extends BaseTargetPreparer {
       throw new TargetSetupError(
           String.format("Failed to get the current user"), device.getDeviceDescriptor());
     }
-    return Integer.parseInt(getCurrentUserCommandResult.getStdout());
+    return Integer.parseInt(getCurrentUserCommandResult.getStdout().trim());
   }
 
   // Skips the Google Terms and Conditions for all the users. This would remove the restrictions
