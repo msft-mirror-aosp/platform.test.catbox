@@ -42,6 +42,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+// @TODO(b/378562019): rename to more appropriate ChromeMdLoadPreparer
 @OptionClass(alias = "chrome-md-passenger-load")
 public class ChromeMdPassengerLoadPreparer extends BaseTargetPreparer {
 
@@ -84,11 +85,21 @@ public class ChromeMdPassengerLoadPreparer extends BaseTargetPreparer {
     increaseSupportedUsers(device);
     Set<Integer> displayIds = device.listDisplayIdsForStartingVisibleBackgroundUsers();
     for (Integer displayId : displayIds) {
+      if (mSkipDisplayIds.contains(displayId)) {
+        LogUtil.CLog.d("Skipping user creation for display %d", displayId);
+        continue;
+      }
       int userId = createAndStartUser(device, displayId);
       LogUtil.CLog.d(
           "Created and started new passenger user: %s on Display: %s", userId, displayId);
       mDisplayToCreatedUsers.put(displayId, userId);
     }
+
+    // Assume current user is on the main display
+    int currentUser = device.getCurrentUser();
+    LogUtil.CLog.d("Mapping current user %d to display 0", currentUser);
+    mDisplayToCreatedUsers.put(0, currentUser);
+
     skipGtos(device);
     skipSuw(device);
     dismissChromeDialogs(device);
@@ -98,10 +109,6 @@ public class ChromeMdPassengerLoadPreparer extends BaseTargetPreparer {
     }
 
     for (Integer displayId : mDisplayToCreatedUsers.keySet()) {
-      if (mSkipDisplayIds.contains(displayId)) {
-        LogUtil.CLog.d("Skipping load on display %d", displayId);
-        continue;
-      }
       int userId = mDisplayToCreatedUsers.get(displayId);
       simulatePassengerLoad(device, userId);
     }
@@ -240,17 +247,6 @@ public class ChromeMdPassengerLoadPreparer extends BaseTargetPreparer {
     LogUtil.CLog.d("Successfully skipped set-up wizard across all passenger users");
   }
 
-  private int getCurrentUser(ITestDevice device) throws DeviceNotAvailableException, TargetSetupError {
-    LogUtil.CLog.d("Getting the current user ID");
-    String getCurrentUserCommand = "am get-current-user";
-    CommandResult getCurrentUserCommandResult = device.executeShellV2Command(getCurrentUserCommand);
-    if (getCurrentUserCommandResult.getExitCode() != 0) {
-      throw new TargetSetupError(
-          String.format("Failed to get the current user"), device.getDeviceDescriptor());
-    }
-    return Integer.parseInt(getCurrentUserCommandResult.getStdout());
-  }
-
   // Skips the Google Terms and Conditions for all the users. This would remove the restrictions
   // enforced on GAS apps for all users.
   private void skipGtos(ITestDevice device) throws DeviceNotAvailableException, TargetSetupError {
@@ -265,10 +261,7 @@ public class ChromeMdPassengerLoadPreparer extends BaseTargetPreparer {
             "com.google.android.carassistant",
             mPackage,
             "com.chrome.beta");
-    Map<Integer, Integer> mAllDisplaysToCreatedUsers = new HashMap<>();
-    mAllDisplaysToCreatedUsers.putAll(mDisplayToCreatedUsers);
-    mAllDisplaysToCreatedUsers.put(0, getCurrentUser(device));
-    for (int userID : mAllDisplaysToCreatedUsers.values()) {
+    for (int userID : mDisplayToCreatedUsers.values()) {
       for (String gasPackageName : gasPackageNames) {
         String gTOSPmCommand = String.format("pm enable --user %d %s ", userID, gasPackageName);
         CommandResult gTOSPmResult = device.executeShellV2Command(gTOSPmCommand);
