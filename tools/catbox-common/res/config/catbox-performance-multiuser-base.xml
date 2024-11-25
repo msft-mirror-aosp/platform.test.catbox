@@ -17,6 +17,10 @@
 <configuration description="Base config for Multi-User latency metrics">
   <include name="catbox-performance-base" />
 
+  <!-- Disable SUW for multiuser tests -->
+  <option name="device-setup:disable" value="false" />
+  <option name="device-setup:set-property" key="aae.suw.provisioning_mode_override" value="DISABLED" />
+
   <!-- TradeFed test harness -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.scenario.multiuser" />
