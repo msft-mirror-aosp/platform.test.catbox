@@ -18,6 +18,11 @@
     <include name="catbox-performance-base" />
     <include name="catbox-performance-boot-test-common" />
 
+    <option name="push-file:push-file" key="trace_config_post_boot.textproto" value="/data/misc/perfetto-configs/boottrace.pbtxt" />
+    <option name="perfetto-metric-collector:trace-processor-timeout" value="1200000" />
+    <option name="perfetto-generic-processor:perfetto-proto-file-prefix" value="metric_BootTime" />
+    <option name="perfetto-generic-processor:perfetto-include-all-metrics" value="true" />
+
     <!-- Artificially disabling tests in CompatibilityTestSuite -->
     <!-- See com.android.tradefed.testtype.suite.CompatibilityTestSuite:loadTests() -->
     <option name="compatibility:reverse-exclude-filters" value="true" />
