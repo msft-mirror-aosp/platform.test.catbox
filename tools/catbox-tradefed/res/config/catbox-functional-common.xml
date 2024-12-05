@@ -1,5 +1,5 @@
 <!--
- Copyright (C) 2021 Google Inc.
+ Copyright (C) 2024 Google Inc.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Complete Automotive Tests - Bluetooth Setting Functional Tests.">
+<configuration description="Complete Automotive Tests - Functional Tests.">
   <!-- Common Base -->
   <include name="catbox-common"/>
 
@@ -21,13 +21,11 @@
   <include name="catbox-preparer"/>
 
   <!-- Plan -->
-  <option name="plan" value="catbox-functional-bluetooth-setting"/>
+  <option name="plan" value="catbox-functional-common"/>
 
   <!-- Test Args -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.tests" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
-
-  <!-- Tests -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.BluetoothSettingTest" />
 </configuration>
+
