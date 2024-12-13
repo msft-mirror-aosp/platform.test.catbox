@@ -27,7 +27,7 @@
   <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:procload-collector:proc-loadavg-timeout:=900000" />
 
   <!-- App Start Up Options -->
-  <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:listener:=android.device.collectors.ProcLoadListener,android.device.collectors.AppStartupListener" />
+  <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:listener:=android.device.collectors.PerfettoListener,android.device.collectors.ProcLoadListener,android.device.collectors.AppStartupListener" />
   <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:iterations:=20" />
   <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:favor-shell-commands:=true" />
   <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:rename-iterations:=true" />
@@ -40,6 +40,11 @@
 
   <!-- Test Package -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.dial" />
+
+  <!-- Perfetto -->
+  <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:perfetto_config_text_proto:=true" />
+  <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:test_output_root:=/data/misc/perfetto-traces" />
+  <option name="compatibility:module-arg" value="AndroidAutomotiveDialScenarioTests:instrumentation-arg:perfetto_should_use_content_provider:=false" />
 
   <!-- Test -->
   <option name="compatibility:include-filter" value="AndroidAutomotiveDialScenarioTests android.platform.test.scenario.dial.OpenAppMicrobenchmark" />
