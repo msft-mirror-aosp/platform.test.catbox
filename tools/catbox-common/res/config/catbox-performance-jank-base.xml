@@ -24,4 +24,9 @@
 
   <!-- Post Processors -->
   <include name ="catbox-performance-postprocessors"/>
+
+  <!-- Perfetto -->
+  <!-- TODO(b/383865164): replace with trace_config.textproto once it's available -->
+  <option name="push-file:push-file" key="long_trace_config.textproto" value="/data/misc/perfetto-traces/trace_config.textproto" />
+  <option name="perfetto-generic-processor:perfetto-include-all-metrics" value="true" />
 </configuration>
