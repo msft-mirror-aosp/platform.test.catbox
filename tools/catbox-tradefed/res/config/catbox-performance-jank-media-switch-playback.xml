@@ -28,7 +28,7 @@
     <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:procload-collector:proc-loadavg-timeout:=900000" />
 
     <!-- Jank Options -->
-    <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:listener:=android.device.collectors.ProcLoadListener,android.device.collectors.JankListener" />
+    <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:listener:=android.device.collectors.PerfettoListener,android.device.collectors.ProcLoadListener,android.device.collectors.JankListener" />
     <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:iterations:=20" />
     <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:favor-shell-commands:=true" />
     <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:rename-iterations:=true" />
@@ -36,6 +36,11 @@
 
     <!-- Test Package -->
     <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.mediacenter" />
+
+    <!-- Perfetto -->
+    <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:perfetto_config_text_proto:=true" />
+    <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:test_output_root:=/data/misc/perfetto-traces" />
+    <option name="compatibility:module-arg" value="AndroidAutomotiveMediaCenterScenarioTests:instrumentation-arg:perfetto_should_use_content_provider:=false" />
 
     <!-- Test -->
     <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterScenarioTests android.platform.test.scenario.mediacenter.SwitchPlaybackMicrobenchmark" />
