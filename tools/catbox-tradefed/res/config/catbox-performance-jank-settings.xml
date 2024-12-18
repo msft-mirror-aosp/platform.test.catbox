@@ -27,7 +27,7 @@
   <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:procload-collector:proc-loadavg-timeout:=900000" />
 
   <!-- Jank Options -->
-  <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:listener:=android.device.collectors.ProcLoadListener,android.device.collectors.JankListener" />
+  <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:listener:=android.device.collectors.PerfettoListener,android.device.collectors.ProcLoadListener,android.device.collectors.JankListener" />
   <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:iterations:=20" />
   <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:favor-shell-commands:=true" />
   <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:rename-iterations:=true" />
@@ -35,6 +35,11 @@
 
   <!-- Test Package -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.settings" />
+
+  <!-- Perfetto -->
+  <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:perfetto_config_text_proto:=true" />
+  <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:test_output_root:=/data/misc/perfetto-traces" />
+  <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:perfetto_should_use_content_provider:=false" />
 
   <!-- Test -->
   <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsScenarioTests android.platform.test.scenario.settings.ScrollInAppMicrobenchmark" />
@@ -44,7 +49,7 @@
 
   <!-- Test Metrics Report Options -->
   <option name="report-log-name" value="CatboxPerformanceTests" />
-  <option name="report-test-name-mapping" key="android.platform.test.scenario.settings.ScrollInAppMicrobenchmark#testScrollDownAndUp" value="settings_scroll_jank" />
+  <option name="report-test-name-mapping" key="android.platform.test.scenario.settings.ScrollInAppMicrobenchmark#testScrollForwardAndBackward" value="settings_scroll_jank" />
   <option name="report-all-metrics" value="false" />
   <option name="report-metric-key-mapping" key="gfxinfo_com.android.car.settings_janky_frames_percent-mean" value="jank_frames_percent" />
 </configuration>
