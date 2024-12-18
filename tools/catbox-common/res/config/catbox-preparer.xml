@@ -25,6 +25,11 @@
     <option name="disable" value="true" />
   </target_preparer>
 
+  <!-- Target Preparers - Start user on secondary display -->
+  <target_preparer class="com.android.tradefed.targetprep.VisibleBackgroundUserPreparer">
+    <option name="disable" value="true" />
+  </target_preparer>
+
   <!-- Target Preparers - Setup the Device -->
   <target_preparer class="com.android.tradefed.targetprep.DeviceSetup">
     <option name="disable" value="true" />
@@ -32,6 +37,11 @@
     <option name="screen-adaptive-brightness" value="off" />
     <option name="screen-saver" value="off" />
     <option name="set-secure-setting" key="location_mode" value="1" />
+  </target_preparer>
+
+  <!-- Target Preparers - Limit resources on the device for low performance testing -->
+  <target_preparer class="com.android.catbox.targetpreparer.LowPerformanceTargetPreparer">
+    <option name="disable" value="true" />
   </target_preparer>
 
   <!-- Target Preparers - ADB Root -->

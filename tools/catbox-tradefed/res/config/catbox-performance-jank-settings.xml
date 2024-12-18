@@ -37,14 +37,14 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.test.scenario.settings" />
 
   <!-- Test -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsScenarioTests android.platform.test.scenario.settings.ScrollInAppMicrobenchmark#testScrollDownAndUp" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsScenarioTests android.platform.test.scenario.settings.ScrollInAppMicrobenchmark" />
 
   <!-- Jank Package -->
   <option name="compatibility:module-arg" value="AndroidAutomotiveSettingsScenarioTests:instrumentation-arg:jank-package-names:=com.android.car.settings" />
 
   <!-- Test Metrics Report Options -->
   <option name="report-log-name" value="CatboxPerformanceTests" />
-  <option name="report-test-name-mapping" key="android.platform.test.scenario.settings.ScrollInAppMicrobenchmark#testScrollDownAndUp" value="settings_scroll_jank" />
+  <option name="report-test-name-mapping" key="android.platform.test.scenario.settings.ScrollInAppMicrobenchmark#testScrollForwardAndBackward" value="settings_scroll_jank" />
   <option name="report-all-metrics" value="false" />
   <option name="report-metric-key-mapping" key="gfxinfo_com.android.car.settings_janky_frames_percent-mean" value="jank_frames_percent" />
 </configuration>

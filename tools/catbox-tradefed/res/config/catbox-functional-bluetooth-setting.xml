@@ -1,5 +1,5 @@
 <!--
- Copyright (C) 2023 Google Inc.
+ Copyright (C) 2021 Google Inc.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,19 +13,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Complete Automotive Tests - AdminUserGrantPermissions Functional Tests.">
+<configuration description="Complete Automotive Tests - Bluetooth Setting Functional Tests.">
   <!-- Common Base -->
   <include name="catbox-common"/>
 
   <!-- Device Preparers -->
   <include name="catbox-preparer"/>
 
-  <!-- Enable system user target preparer to run as user 0 -->
-  <option name="run-on-system-user:disable" value="false" />
-
   <!-- Plan -->
-  <option name="plan" value="  functional_tests.catbox_functional_admin_user_grant_permissions
-"/>
+  <option name="plan" value="catbox-functional-bluetooth-setting"/>
 
   <!-- Test Args -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
@@ -33,5 +29,5 @@
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
 
   <!-- Tests -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveAdminUserGrantPermissionsTests android.platform.tests.GrantPermissionsToNonAdminUserTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.BluetoothSettingTest" />
 </configuration>
