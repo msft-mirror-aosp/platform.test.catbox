@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2021 Google Inc.
+<!--
+ Copyright (C) 2021 Google Inc.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,20 +13,22 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Automotive App Start-up Performance Test Base.">
-  <!-- Performance Base -->
-  <include name="catbox-performance-base" />
+<configuration description="Complete Automotive Tests - Bluetooth Default State Functional Tests.">
+  <!-- Common Base -->
+  <include name="catbox-common"/>
 
-  <!-- Base Test Arguments -->
+  <!-- Device Preparers -->
+  <include name="catbox-preparer"/>
+
+  <!-- Plan -->
+  <option name="plan" value="catbox-functional-bluetooth-default-state"/>
+
+  <!-- Test Args -->
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
+  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.tests" />
   <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
-  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:shell-timeout:1000000" />
 
-  <!-- Post Processors -->
-  <include name ="catbox-performance-postprocessors"/>
-
-  <!-- Perfetto -->
-  <!-- TODO(b/383865164): replace with trace_config.textproto once it's available -->
-  <option name="push-file:push-file" key="long_trace_config.textproto" value="/data/misc/perfetto-traces/trace_config.textproto" />
-  <option name="perfetto-generic-processor:perfetto-include-all-metrics" value="true" />
+  <!-- Tests -->
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.BluetoothSettingTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveBluetoothMediaTests android.platform.tests.BluetoothMediaTest" />
 </configuration>
