@@ -17,6 +17,11 @@
     <target_preparer class="com.android.tradefed.targetprep.suite.SuiteApkInstaller" >
       <option name="test-file-name" value="AutomotiveSnippet.apk" />
     </target_preparer>
+    <!--To exit the SUW and gTos screens -->
+    <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
+      <option name="run-command" value="am start -n com.google.android.car.setupwizard/.ExitActivity" />
+      <option name="run-command" value="am start -n com.google.android.car.setupwizard/.ExitActivity" />
+    </target_preparer>
   </device>
 
   <device name="phone">
