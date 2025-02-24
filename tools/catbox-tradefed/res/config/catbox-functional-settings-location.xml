@@ -30,4 +30,5 @@
 
   <!-- Tests -->
   <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsLocationTests android.platform.tests.SettingsLocationTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsLocationTests android.platform.tests.LocationAccessTest" />
 </configuration>
