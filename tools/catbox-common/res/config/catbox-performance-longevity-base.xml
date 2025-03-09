@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2024 Google Inc.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<configuration description="CATBOX Longevity Base Configuration">
+    <include name="catbox-performance-base"/>
+
+    <!-- Base Test Arguments -->
+    <option name="compatibility:test-arg"
+            value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner"/>
+    <option name="compatibility:test-arg"
+            value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true"/>
+    <!-- Set test timeout for 14 hours -->
+    <option name="compatibility:test-arg"
+            value="com.android.tradefed.testtype.AndroidJUnitTest:shell-timeout:50400000"/>
+
+    <!-- Install and start mock GPS injector -->
+    <option name="compatibility:test-arg"
+            value="com.android.tradefed.targetprep.RunCommandTargetPreparer:run-command:appops set android.support.test.locationsimulator android:mock_location allow"/>
+    <option name="compatibility:test-arg"
+            value="com.android.tradefed.targetprep.RunCommandTargetPreparer:run-command:am start-foreground-service -n android.support.test.locationsimulator/.LocationSimulatorService -e gpxFile /data/local/tmp/mtv_san.gpx"/>
+
+    <!-- Listeners -->
+    <option name="compatibility:module-arg"
+            value="AndroidAutomotiveLongevityTests:instrumentation-arg:listener:=android.device.collectors.CrashListener,android.device.collectors.CpuUsageListener,android.device.collectors.FreeMemListener,android.device.collectors.DumpsysMeminfoListener"/>
+
+    <!-- Metrics collectors -->
+    <metrics_collector class="com.android.tradefed.device.metric.FilePullerLogCollector"/>
+    <option name="directory-keys"
+            value="/storage/emulated/10/test_results/ScheduledDumpsysMeminfoListener"/>
+    <option name="directory-keys"
+            value="/storage/emulated/10/test_results/ScheduledFreeMemListener"/>
+    <option name="directory-keys"
+            value="/storage/emulated/10/test_results/ScheduledProcCpuUtilizationListener"/>
+    <option name="collect-on-run-ended-only" value="true"/>
+    <metrics_collector class="com.android.tradefed.device.metric.PerfettoPullerMetricCollector"/>
+    <metrics_collector class="com.android.tradefed.device.metric.RebootReasonCollector">
+        <option name="disable" value="false"/>
+    </metrics_collector>
+    <metrics_collector class="com.android.tradefed.device.metric.RuntimeRestartCollector">
+        <option name="disable" value="false"/>
+    </metrics_collector>
+
+    <!-- Post Processors -->
+    <include name="catbox-performance-postprocessors"/>
+
+</configuration>
