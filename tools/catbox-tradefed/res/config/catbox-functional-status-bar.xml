@@ -35,4 +35,6 @@
   <!-- Tests -->
   <option name="compatibility:include-filter"
       value="AndroidAutomotiveStatusBarTests android.platform.tests.StatusBarTest" />
+  <option name="compatibility:include-filter"
+      value="AndroidAutomotiveStatusBarTests android.platform.tests.CurrentDateTimeTest" />
 </configuration>
