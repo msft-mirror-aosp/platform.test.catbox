@@ -51,7 +51,13 @@
     <!-- Enable perfetto host side metric collector -->
     <metrics_collector class="com.android.tradefed.device.metric.PerfettoPullerMetricCollector">
         <option name="collect-on-run-ended-only" value="false" />
-        <option name="pull-pattern-keys" value="perfetto_file_path" />
+        <option name="pull-pattern-keys" value="^perfetto_file_path(_\d+)?$" />
         <option name="trace-processor-run-metrics" value="android_mem,android_auto_multiuser,android_monitor_contention,android_monitor_contention_agg,android_binder,android_boot,android_startup,android_jank_cuj,android_frame_timeline_metric,android_app_process_starts,android_boot_unagg,android_garbage_collection_unagg,android_io" />
+    </metrics_collector>
+
+    <metrics_collector class="com.android.tradefed.device.metric.FilePullerLogCollector">
+        <option name="collect-on-run-ended-only" value="false"/>
+        <!-- Passing case already collected by PerfettoPullerMetricCollector -->
+        <option name="pull-pattern-keys" value="^perfetto_file_path(_\d+)?_FAILED$"/>
     </metrics_collector>
 </configuration>
