@@ -58,6 +58,6 @@
     <metrics_collector class="com.android.tradefed.device.metric.FilePullerLogCollector">
         <option name="collect-on-run-ended-only" value="false"/>
         <!-- Passing case already collected by PerfettoPullerMetricCollector -->
-        <option name="pull-pattern-keys" value="^perfetto_file_path(_\d+)?_FAILED$"/>
+        <option name="pull-pattern-keys" value="^perfetto_file_path_FAILED(_\d+)?$"/>
     </metrics_collector>
 </configuration>
