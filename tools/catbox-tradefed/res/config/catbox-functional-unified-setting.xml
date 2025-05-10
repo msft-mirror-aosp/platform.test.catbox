@@ -39,4 +39,5 @@
   <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.SystemSettingTest" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.EnableDevelopersOption" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.StorageSettingTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.SystemSettingLocalSystemUpdateTest" />
 </configuration>
