@@ -11,7 +11,7 @@
      limitations under the License.
 -->
 <configuration
-    description="Complete Automotive Tests - Status Bar Functional Tests.">
+    description="Complete Automotive Tests - Home Screen Functional Tests.">
   <!-- Common Base -->
   <include name="catbox-common" />
   <!-- Device Preparers -->
@@ -38,4 +38,8 @@
       value="AndroidAutomotiveStatusBarTests android.platform.tests.SoundPaletteTest" />
   <option name="compatibility:include-filter"
       value="AndroidAutomotiveStatusBarTests android.platform.tests.CurrentDateTimeTest" />
+  <option name="compatibility:include-filter"
+      value="AndroidAutomotiveHomeTests android.platform.tests.SystemUiTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveAppGridTests" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveNavigationBarTests" />
 </configuration>
