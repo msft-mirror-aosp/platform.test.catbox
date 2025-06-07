@@ -36,4 +36,7 @@
   <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.DisplaySettingTest" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.WifiSettingTest" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.SystemSettingVerifyUIElementsTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.SystemSettingTest" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.EnableDevelopersOption" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveSettingsTests android.platform.tests.StorageSettingTest" />
 </configuration>
