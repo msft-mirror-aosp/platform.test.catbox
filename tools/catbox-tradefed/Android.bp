@@ -46,3 +46,10 @@ tradefed_binary_host {
         "catbox-report-lib",
     ],
 }
+
+compatibility_test_suite_package {
+    name: "catbox",
+    tradefed: "catbox-tradefed",
+    readme: "README",
+    tools: ["catbox-report-lib.jar"],
+}
