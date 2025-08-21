@@ -38,6 +38,7 @@
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.SwitchToGuestFromNonAdmin" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.DeleteUserInInfotainmentSystem" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.EditNonAdminName" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.GuestMicrophoneOnStatusBarTest" />
 <!--
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.DeleteLastAdminUser" />
 -->
