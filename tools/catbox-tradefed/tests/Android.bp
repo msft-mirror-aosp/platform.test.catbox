@@ -25,4 +25,8 @@ java_library_host {
         "tradefed",
         "catbox-tradefed",
     ],
+    static_libs: [
+        // Import common validation tests
+        "suite-loading-tests",
+    ],
 }
