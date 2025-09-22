@@ -13,4 +13,3 @@
 # limitations under the License.
 
 COMPATIBILITY_TESTCASES_OUT_catbox := $(HOST_OUT)/catbox/android-catbox/testcases
-COMPATIBILITY_TESTCASES_OUT_INCLUDE_MODULE_FOLDER_catbox := true
