@@ -1,5 +1,5 @@
 <!--
- Copyright (C) 2021 Google Inc.
+ Copyright (C) 2025 Google Inc.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,23 +13,22 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Complete Automotive Tests - MediaCenter Functional Tests.">
-  <!-- Common Base -->
-  <include name="catbox-common"/>
+<configuration description="Complete Automotive Tests - Media Card Functional Tests.">
+    <!-- Common Base -->
+    <include name="catbox-common"/>
 
-  <!-- Device Preparers -->
-  <include name="catbox-preparer"/>
+    <!-- Device Preparers -->
+    <include name="catbox-preparer"/>
 
-  <!-- Plan -->
-  <option name="plan" value="catbox-functional-mediacenter"/>
+    <!-- Plan -->
+    <option name="plan" value="catbox-functional-mediacard"/>
 
-  <!-- Test Args -->
-  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
-  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.tests" />
-  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
-  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:shell-timeout:500000" />
-  <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:test-timeout:500000" />
+    <!-- Test Args -->
+    <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:runner:androidx.test.runner.AndroidJUnitRunner" />
+    <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:package:android.platform.tests" />
+    <option name="compatibility:test-arg" value="com.android.tradefed.testtype.AndroidJUnitTest:no-rerun:true" />
 
-  <!-- Tests -->
-  <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterTests android.platform.tests.MediaCardTest" />
+    <!-- Tests -->
+    <option name="compatibility:include-filter" value="AndroidAutomotiveMediaCenterTests android.platform.tests.MediaCardTest" />
+
 </configuration>
