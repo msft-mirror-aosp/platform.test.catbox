@@ -33,11 +33,13 @@
 
   <!-- Tests -->
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.AddUserFromNonAdmin" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.GuestUserSettings" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.DeleteAdminWhenNonAdminAvailable" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.DeleteCurrentNonAdminUser" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.SwitchToGuestFromNonAdmin" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.DeleteUserInInfotainmentSystem" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.EditNonAdminName" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.GuestMicrophoneOnStatusBarTest" />
 <!--
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.DeleteLastAdminUser" />
 -->

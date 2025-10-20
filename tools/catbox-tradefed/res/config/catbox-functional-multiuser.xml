@@ -42,6 +42,7 @@
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.SwitchUserQuickSettings" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.DeleteGuestSelfNotAllowed" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.EditAdminName" />
-  <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.GuestUserSettings" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.NonAdminUserSettings" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.VerifyDockOnNewUser" />
+  <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.MultiUserMicrophoneOnStatusBarTest" />
 </configuration>
