@@ -31,6 +31,10 @@
   <device name="phone">
     <!-- Build Provider -->
     <build_provider class="com.android.compatibility.common.tradefed.build.CompatibilityBuildProvider" />
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer" />
+    <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
+      <option name="cleanup" value="true" />
+    </target_preparer>
     <target_preparer class="com.android.tradefed.targetprep.suite.SuiteApkInstaller" >
       <option name="test-file-name" value="PhoneSnippet.apk" />
     </target_preparer>
