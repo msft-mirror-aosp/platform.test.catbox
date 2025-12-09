@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2023 The Android Open Source Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<configuration description="One device with opencv available">
+    <device name="device1">
+        <build_provider class="com.android.compatibility.common.tradefed.build.CompatibilityBuildProvider" />
+
+        <!-- Target Preparer To Collect Device Info -->
+        <target_preparer class="com.android.compatibility.common.tradefed.targetprep.DeviceInfoCollector">
+          <option name="apk" value="CtsDeviceInfo.apk"/>
+          <option name="package" value="com.android.compatibility.common.deviceinfo"/>
+          <option name="src-dir" value="/sdcard/device-info-files/"/>
+          <option name="dest-dir" value="device-info-files/"/>
+          <option name="temp-dir" value="temp-device-info-files/"/>
+          <option name="throw-error" value="false"/>
+        </target_preparer>
+
+        <!-- Python Dependencies -->
+        <target_preparer class="com.android.tradefed.targetprep.PythonVirtualenvPreparer">
+            <option name="disable" value="false" />
+            <option name="dep-module" value="mobly==1.13" />
+            <!-- Required for Parameterization -->
+            <option name="dep-module" value="absl-py==2.1.0" />
+            <!-- Required for Screenshot comparison -->
+            <option name="dep-module" value="importlib-resources" />
+            <option name="dep-module" value="opencv-python" />
+            <option name="dep-module" value="Pillow" />
+        </target_preparer>
+
+        <target_preparer class="com.android.tradefed.targetprep.suite.SuiteApkInstaller" >
+            <option name="test-file-name" value="AutomotiveSnippet.apk" />
+        </target_preparer>
+
+        <!-- Target Preparers - WiFi Preparer -->
+        <target_preparer class="com.android.tradefed.targetprep.WifiPreparer" >
+            <option name="skip" value="true" />
+        </target_preparer>
+
+        <!-- ADB Root -->
+        <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer" />
+
+    </device>
+</configuration>
