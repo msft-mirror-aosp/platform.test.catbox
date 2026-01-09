@@ -14,20 +14,42 @@
      limitations under the License.
 -->
 <configuration description="Complete Automotive Tests - Vehicle Action Tests.">
-    <include name="catbox-common" />
-    <include name="catbox-preparer" />
-    <option name="test-tag" value="catbox" />
-    <option name="plan" value="catbox-functional-actions" />
+  <option name="plan" value="catbox-functional-actions" />
 
-    <option name="apk-installer:test-file-name" value="AutomotiveSnippet.apk" />
-    <option name="compatibility:reverse-exclude-filters" value="true" />
-    <option name="device-info-collector:skip-device-info" value="true" />
+  <include name="everything" />
 
-    <test class="com.android.tradefed.testtype.mobly.MoblyBinaryHostTest">
-        <option name="mobly-par-file-name" value="ActionsGears" />
-        <option name="mobly-par-file-name" value="ActionsHvac" />
-        <option name="mobly-test-timeout" value="300000" />
-        <option name="mobly-std-log" value="true" />
+  <!-- Template for Result Reporters -->
+  <template-include name="reporters" default="empty" />
+
+  <!-- Test Tag -->
+  <option name="test-tag" value="catbox" />
+
+  <!-- Basic Reporters -->
+  <include name="basic-reporters" />
+
+  <!-- Template for Metadata Reporters -->
+  <template-include name="metadata-reporters" default="empty" />
+
+  <!-- Default ABI -->
+  <option name="compatibility:primary-abi-only" value="true" />
+
+  <!-- Template for Device Configuration -->
+  <template-include name="device-config" default="device-config/one-device-opencv" />
+
+  <!--
+      CATBox Runs all modules if it is not specified.
+      So, we need to skip these modules in case of Mobly tests
+      which can be done by adding following option.
+   -->
+  <option name="compatibility:reverse-exclude-filters" value="true" />
+
+  <test class="com.android.tradefed.testtype.mobly.MoblyBinaryHostTest">
+    <!-- The mobly-par-file-name should match the module name , it is passed on runtime-->
+    <!-- Timeout limit in milliseconds for all test cases of the python binary -->
+    <option name="mobly-test-timeout" value="300000" />
+    <option name="mobly-std-log" value="true" />
+    <!-- Testbed config file -->
         <option name="mobly-config-file-name" value="actions_config.yaml" />
+        <!-- The mobly-par-file-name should match the module name, it is passed at runtime -->
     </test>
 </configuration>
