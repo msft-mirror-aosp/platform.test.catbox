@@ -1,0 +1,55 @@
+<!-- Copyright 2025 Google LLC -->
+<configuration description="Display Safety HAR Performance Boot Time Test">
+    <!-- Plan -->
+    <option name="plan" value="display-safety-performance-boot-time"/>
+
+    <!-- Include Display Safety CATBox Base Configuration -->
+    <include name="display-safety"/>
+
+    <!-- Test Tag -->
+    <option name="test-tag" value="display-safety-har-catbox-performance-boot-time" />
+
+    <target_preparer
+        class="com.android.compatibility.common.tradefed.targetprep.ReportLogCollector">
+        <option name="src-dir" value="/sdcard/report-log-files/"/>
+        <option name="dest-dir" value="report-log-files/"/>
+        <option name="temp-dir" value="temp-report-logs/"/>
+    </target_preparer>
+
+    <!-- TEST -->
+    <option name="compatibility:include-filter" value="BootTimeTest android.boottime.BootTimeTest#testSuccessiveBoots"/>
+    <option name="compatibility:test-arg" value="com.android.tradefed.testtype.HostTest:set-option:boot-delay:20000" />
+    <option name="compatibility:test-arg" value="com.android.tradefed.testtype.HostTest:set-option:boot-count:10" />
+    <option name="compatibility:test-arg" value="com.android.tradefed.testtype.HostTest:set-option:after-boot-delay:15000" />
+
+    <!-- Metrics Collectors -->
+    <metrics_collector class="com.android.tradefed.device.metric.AtraceCollector"/>
+    <metrics_collector class="com.android.tradefed.device.metric.PerfettoPullerMetricCollector">
+        <option name="collect-on-run-ended-only" value="false" />
+    </metrics_collector>
+
+    <!-- Post Processors -->
+    <metric_post_processor class="com.android.tradefed.postprocessor.MetricFilePostProcessor">
+        <option name="aggregate-similar-tests" value="true" />
+    </metric_post_processor>
+    <metric_post_processor class="com.android.tradefed.postprocessor.PerfettoGenericPostProcessor" />
+    <metric_post_processor class="android.boottime.postprocessor.LogcatPostProcessor">
+        <option name="file-regex" value=".*Successive_reboots_logcat.*"/>
+        <option name="starting-phase-signal" value="init first stage started!"/>
+        <option name="boot-time-pattern" key="vm_boot_completed" value="VIRTUAL_DEVICE_BOOT_COMPLETED"/>
+        <option name="boot-time-pattern" key="HAR app boot up time" value="harry-app:"/>
+        <option name="boot-time-pattern" key="First frame of HAR splash screen after HAR app boot up" value="harry-app.*frame"/>
+    </metric_post_processor>
+    <metric_post_processor class="android.boottime.postprocessor.DmesgPostProcessor">
+        <option name="file-regex" value=".*Successive_reboots_dmesg.*"/>
+    </metric_post_processor>
+
+    <!-- Result Reporter -->
+    <result_reporter class="com.android.catbox.result.JsonResultReporter">
+        <option name="test-iteration-separator" value="$"/>
+        <option name="aggregate-similar-tests" value="true"/>
+        <option name="dest-dir" value="report-log-files/"/>
+        <option name="report-log-name" value="DisplaySafetyPerformanceBootTime" />
+        <option name="report-all-metrics" value="true" />
+    </result_reporter>
+</configuration>

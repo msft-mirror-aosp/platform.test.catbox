@@ -1,0 +1,24 @@
+<!-- Copyright 2025 Google LLC -->
+<configuration description="Display Safety Test To Run Modules">
+    <include name="everything" />
+
+    <!-- Test Tag -->
+    <option name="test-tag" value="display-safety-catbox" />
+
+    <!-- Basic Reporters -->
+    <include name="basic-reporters" />
+
+    <!-- Template for Metadata Reporters -->
+    <template-include name="metadata-reporters" default="empty" />
+
+    <!-- Template for Result Reporters -->
+    <template-include name="reporters" default="empty" />
+
+    <!-- Default ABI -->
+    <option name="compatibility:primary-abi-only" value="true" />
+
+    <!-- Plan -->
+    <option name="plan" value="display-safety"/>
+
+    <!-- Provide Modules to execute at runtime -->
+</configuration>

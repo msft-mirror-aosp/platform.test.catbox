@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2025 Google LLC -->
+<configuration description="Display Safety Two Devices Configuration">
+  <!-- Include Base Configuration For Mobly Tests -->
+  <include name="common/display-safety-catbox-base"/>
+
+  <device name="device1">
+    <build_provider class="com.android.compatibility.common.tradefed.build.CompatibilityBuildProvider" />
+
+    <!-- Python Dependencies. Needed Only For First Device -->
+    <target_preparer class="com.android.tradefed.targetprep.PythonVirtualenvPreparer">
+      <option name="disable" value="false" />
+      <option name="dep-module" value="mobly==1.13" />
+      <!-- Required for Parameterization -->
+      <option name="dep-module" value="absl-py==2.1.0" />
+      <!-- Required for Display Safety -->
+      <option name="dep-module" value="grpcio==1.74.0"/>
+      <option name="dep-module" value="protobuf" />
+      <option name="dep-module" value="importlib-resources" />
+      <option name="dep-module" value="opencv-python" />
+      <option name="dep-module" value="numpy" />
+      <option name="dep-module" value="Pillow" />
+      <option name="dep-module" value="google-genai" />
+      <option name="dep-module" value="httplib2" />
+    </target_preparer>
+
+    <!-- ADB Root -->
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer" />
+  </device>
+
+  <device name="device2">
+    <build_provider class="com.android.compatibility.common.tradefed.build.CompatibilityBuildProvider" />
+
+     <!-- ADB Root -->
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer" />
+  </device>
+
+  <!-- Testbed config file -->
+  <option name="mobly-host:mobly-config-file-name" value="automotive_two_devices_config.yaml" />
+</configuration>

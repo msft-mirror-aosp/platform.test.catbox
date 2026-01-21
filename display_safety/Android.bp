@@ -1,0 +1,20 @@
+// Copyright 2025 Google LLC
+
+package {
+    default_team: "trendy_team_auto_engprod",
+    default_applicable_licenses: [
+        "Android-Apache-2.0",
+    ],
+}
+
+// Build Display Safety Test Plans
+java_test_helper_library {
+    name: "display-safety-config-lib",
+    java_resource_dirs: ["res"],
+    test_suites: [
+        "catbox",
+    ],
+    // Test plan is used as the host and not deployed to an SDV device.
+    host_supported: true,
+    device_supported: false,
+}

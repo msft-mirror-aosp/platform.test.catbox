@@ -1,0 +1,39 @@
+<!-- Copyright 2025 Google LLC -->
+<configuration description="Display Safety CATBox Base">
+
+    <include name="everything" />
+
+    <!-- Test Tag -->
+    <option name="test-tag" value="display-safety-catbox" />
+
+    <!-- Basic Reporters -->
+    <include name="basic-reporters" />
+
+    <!-- Template for Metadata Reporters -->
+    <template-include name="metadata-reporters" default="empty" />
+
+    <!-- Template for Result Reporters -->
+    <template-include name="reporters" default="empty" />
+
+    <!-- Default ABI -->
+    <option name="compatibility:primary-abi-only" value="true" />
+
+    <!--
+        CATBox Runs all modules if it is not specified.
+        So, we need to skip these modules in case of Mobly tests
+        which can be done by adding following option.
+    -->
+    <option name="compatibility:reverse-exclude-filters" value="true" />
+
+    <!--
+        Mobly Binary Host Test
+        Provide mobly-par-file-name as required in the test plans
+    -->
+    <test class="com.android.tradefed.testtype.mobly.MoblyBinaryHostTest">
+        <!-- Timeout limit in milliseconds for all test cases of the python binary -->
+        <option name="mobly-test-timeout" value="300000" />
+        <!-- Show logs on terminal -->
+        <option name="mobly-std-log" value="true" />
+    </test>
+
+</configuration>
