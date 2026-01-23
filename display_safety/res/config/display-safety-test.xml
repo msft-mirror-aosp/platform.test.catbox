@@ -1,0 +1,11 @@
+<!-- Copyright 2025 Google LLC -->
+<configuration description="Display Safety Test">
+    <!-- Template for Device Configuration; Default One Device -->
+    <!-- Change to required device config at runtime -->
+    <template-include name="display-safety-device-config" default="display_safety_device_config/one-device" />
+
+    <!-- Plan. Use the same name as the file name -->
+    <option name="plan" value="display-safety-test"/>
+
+    <!-- Test: provide mobly-par-file-name at runtime -->
+</configuration>
