@@ -45,4 +45,5 @@
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.NonAdminUserSettings" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.VerifyDockOnNewUser" />
   <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.MultiUserMicrophoneOnStatusBarTest" />
+    <option name="compatibility:include-filter" value="AndroidAutomotiveMultiuserTests android.platform.tests.MultiUserLockScreenTest" />
 </configuration>
