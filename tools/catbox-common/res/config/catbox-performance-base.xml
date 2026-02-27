@@ -44,7 +44,7 @@
         <option name="skip-passenger-loading" value="false"/>
         <option name="max-users" value="10"/>
         <option name="post-test-cleanup" value="true"/>
-        <option name="urls" value="https://youtu.be/u-ENQiXgukU?si=5fIAOwTyaOqrvPKL, https://youtu.be/uK7XTwbx5PQ?si=livI7rt6kVPwMz72, https://www.youtube.com/live/u79zKRZiGtU?si=CLjpvhP2By1xyFQx, https://youtu.be/CRw1raqz6nE?si=_uenzqVkQhTzn51d, https://www.youtube.com/live/F3z8tqfSs2I?si=7oIDJuc5_t8_JoB7, https://youtu.be/IApvC32Lmn8?si=YrV6r15BsZY006CA, https://www.youtube.com/live/X0AzBQrAJoM?si=n_d--iEiqKRBIFEI, https://youtu.be/S9-tw35hCsg?si=L-igCZbTkeZNYYs8, https://youtu.be/p296ksiDBb8?si=J8d38p05cc8vPr9s, https://youtu.be/RwK5pQtoVjM?si=WqcMnNSsSp1vb4B5"/>
+        <option name="urls" value="https://youtu.be/u-ENQiXgukU?si=5fIAOwTyaOqrvPKL, https://youtu.be/RwK5pQtoVjM?si=WqcMnNSsSp1vb4B5, https://youtu.be/mvO-asCo7Lc?si=JvR29xCT7ojp-5Fa, https://youtu.be/xSqxgBuN4ac?si=X3UN-LKqCxUkOTcG, https://youtu.be/0FMABOJLSc8?si=QaE8A-ROdnG9VFxV, https://youtu.be/s3Hw38ZQNV8?si=9AZ1cemryKP0Vj9V, https://youtu.be/t52zSXKU7hI?si=Oxm_N6AODLiOoFWZ, https://youtu.be/MkENuSOqEVs?si=zZvHclx9vrcoX44A, https://youtu.be/nz7UGgr5epQ?si=iju4khZux35BS-_7, https://youtu.be/7zLACY4cBr0?si=IOxqbFU3_egY6zxY"/>
         <option name="install-apk" value="false"/>
     </target_preparer>
 
