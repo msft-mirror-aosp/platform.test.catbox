@@ -16,6 +16,9 @@
         <option name="temp-dir" value="temp-report-logs/"/>
     </target_preparer>
 
+    <!-- Remove module buffering to fix missing metrics issue -->
+    <option name="remove-module-buffering" value="true" />
+
     <!-- TEST -->
     <option name="compatibility:include-filter" value="BootTimeTest android.boottime.BootTimeTest#testSuccessiveBoots"/>
     <option name="compatibility:test-arg" value="com.android.tradefed.testtype.HostTest:set-option:boot-delay:20000" />
